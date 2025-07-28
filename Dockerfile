@@ -1,5 +1,5 @@
 # Use official Python base image
-FROM python:3.11-slim
+FROM python:3.13-slim-bookworm
 
 ARG DATE=19700101
 
@@ -14,6 +14,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 # Install system dependencies
 RUN apt-get update -y \
+    && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
         gcc \
         libffi-dev \
